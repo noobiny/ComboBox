@@ -23,6 +23,7 @@ namespace UserControlPractice
         public MainWindow()
         {
             InitializeComponent();
+          
         }
     }
 }
