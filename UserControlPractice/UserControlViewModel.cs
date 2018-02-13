@@ -30,7 +30,7 @@ namespace UserControlPractice
 
         private void OnExcuteMethod(object p)
         {
-            ItemList.Remove(p.ToString());
+            ItemList.Remove(p as ComboBoxItem);
         }
         
         private bool OnCanExcuteMethod(object p)
