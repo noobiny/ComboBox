@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Forms;
+using System.Windows.Input;
 
 namespace UserControlPractice
 {
@@ -24,18 +25,18 @@ namespace UserControlPractice
         public UserControlViewModel()
         {
             RemoveCommand = new TestCommand(OnExcuteMethod, OnCanExcuteMethod);
+
         }
 
         private void OnExcuteMethod(object p)
         {
-            itemList.Remove(p as ComboBoxItem);
+            ItemList.Remove(p.ToString());
         }
         
         private bool OnCanExcuteMethod(object p)
         {
             return true;
         }
-
 
         //아이템소스 바인딩
         private ObservableCollection<ComboBoxItem> itemList;
