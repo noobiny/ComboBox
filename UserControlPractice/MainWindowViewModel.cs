@@ -35,7 +35,7 @@ namespace UserControlPractice
 
         private void OnExcuteMethod(object p)
         {
-            userControlViewModel.ItemList.Add(Input);
+            userControlViewModel.AddItem(Input);
             //count++;
             Input = "";
         }
