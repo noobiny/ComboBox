@@ -55,7 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="DeleteItemCommand.cs" />
+    <Compile Include="MyInterface.cs" />
     <Compile Include="UserControlViewModel.cs" />
     <Page Include="ComboBox.xaml">
       <SubType>Designer</SubType>

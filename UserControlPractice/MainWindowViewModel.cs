@@ -11,9 +11,8 @@ using System.Windows.Input;
 namespace UserControlPractice
 {
 
-    class MainWindowViewModel : INotifyPropertyChanged
+    class MainWindowViewModel : MyInterface
     {
-        //public static int count=0;
         UserControlViewModel userControlViewModel;
         public UserControlViewModel SubVM
         {
@@ -25,7 +24,6 @@ namespace UserControlPractice
         {
             SubVM = new UserControlViewModel();
             ClickCommand = new TestCommand(OnExcuteMethod, OnCanExcuteMethod);
-
         }
 
         private bool OnCanExcuteMethod(object p)
@@ -35,8 +33,9 @@ namespace UserControlPractice
 
         private void OnExcuteMethod(object p)
         {
-            userControlViewModel.ItemList.Add(Input);
-            //count++;
+            StringModel stringModel = new StringModel { Name = Input };
+
+            userControlViewModel.ItemList.Add(stringModel);
             Input = "";
         }
 
@@ -72,6 +71,7 @@ namespace UserControlPractice
             }
         }
 
+      
     }
 
 

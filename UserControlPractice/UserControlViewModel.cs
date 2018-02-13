@@ -11,6 +11,53 @@ using System.Windows.Input;
 namespace UserControlPractice
 {
 
+    public class StringModel : MyInterface
+    {
+        private string name;
+        private int no;
+
+        public string Name
+        {
+            get { return name; }
+            set
+            {
+                if (name != value)
+                {
+                    name = value;
+                    OnPropertyChanged("Name");
+                }
+            }
+        }
+
+        public int No
+        {
+            get { return no; }
+            set
+            {
+                if (no != value)
+                {
+                    no = value;
+                    OnPropertyChanged("No");
+                }
+            }
+        }
+
+        public override string ToString()
+        {
+            return Name;
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void OnPropertyChanged(string p)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(p));
+            }
+        }
+       
+    }
+
     public class UserControlViewModel : INotifyPropertyChanged
     {
 
@@ -20,18 +67,21 @@ namespace UserControlPractice
             set;
         }
 
-
         public UserControlViewModel()
         {
             RemoveCommand = new TestCommand(OnExcuteMethod, OnCanExcuteMethod);
-
         }
 
         private void OnExcuteMethod(object p)
         {
-            ItemList.Remove(p.ToString());
-        }
+            //ItemList.Remove(p.ToString());
+            StringModel stringModel = p as StringModel;
+            if (stringModel != null)
+            {
+                ItemList.Remove(stringModel);
+            }
 
+        }
 
         private bool OnCanExcuteMethod(object p)
         {
@@ -39,14 +89,14 @@ namespace UserControlPractice
         }
 
         //아이템소스 바인딩
-        private ObservableCollection<string> itemList;
-        public ObservableCollection<string> ItemList
+        private ObservableCollection<StringModel> itemList;
+        public ObservableCollection<StringModel> ItemList
         {
             get
             {
                 if (itemList == null)
                 {
-                    itemList = new ObservableCollection<string>();
+                    itemList = new ObservableCollection<StringModel>();
                 }
                 return itemList;
             }

@@ -24,10 +24,7 @@
 
                             <Button Grid.Column="1" Content="del" Margin="3" CommandParameter="{Binding}"
                                     Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ComboBox}},Path= DataContext.RemoveCommand,Mode=TwoWay}" 
-                                   
                                     />
-                            <!--<Button Grid.Column="1" Content="del" Margin="3" Command="{Binding RemoveCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" />-->
-                            <!--<Button Grid.Column="1" Content="x" Margin="3" Command="{Binding Path=RemoveCommand,ElementName=ComboBox}" />-->
                         </Grid>
                     </ControlTemplate>
                 </Setter.Value>
@@ -36,7 +33,4 @@
     </UserControl.Resources>
     <ComboBox x:Name="ComboboxName"  HorizontalAlignment="Left" Margin="10,154,0,0" VerticalAlignment="Top" Width="200" Height="27"
                   ItemsSource="{Binding ItemList}" />
-
-
-
 </UserControl>

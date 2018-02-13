@@ -31,12 +31,12 @@
 
     <Grid>
         <TextBox HorizontalAlignment="Left" Height="65" Margin="23,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top"  Width="248"
-                 Text="{Binding Input}" 
-                 />
+                 Text="{Binding Input}"  Name="txtMessage"/>
+        
         <Button Content="Button" HorizontalAlignment="Left" Margin="310,22,0,0" VerticalAlignment="Top" Width="179" Height="65"
-                Command="{Binding ClickCommand}"
-                />
+                Command="{Binding ClickCommand}" />
         <app1:ComboBox DataContext="{Binding SubVM}"/>
+        <!--<TextBlock  VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding ElementName=txtMessage, Path=Text}"/>-->
 
     </Grid>
 </Window>
