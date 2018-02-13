@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Input;
 
 namespace UserControlPractice
 {
@@ -23,11 +24,12 @@ namespace UserControlPractice
         public UserControlViewModel()
         {
             RemoveCommand = new TestCommand(OnExcuteMethod, OnCanExcuteMethod);
+
         }
 
         private void OnExcuteMethod(object p)
         {
-            MessageBox.Show("HI");
+            ItemList.Remove(p.ToString());
         }
 
 
@@ -35,7 +37,6 @@ namespace UserControlPractice
         {
             return true;
         }
-
 
         //아이템소스 바인딩
         private ObservableCollection<string> itemList;
